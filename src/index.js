@@ -12,7 +12,7 @@ function Greeting() {
 }
 const Heading = () => <h2>Hello World</h2>;
 const Para = () => {
-  return <p>This is React</p>;
+  return <p>This is React COurse</p>;
 };
 //function Greeting(){
 //     return <div><h2>MyFirstComponent</h2></div>;
