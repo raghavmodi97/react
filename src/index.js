@@ -14,31 +14,19 @@ const BookList = () => {
     </section>
   );
 };
+const author = "Rebecca Yarros";
 const Book = () => {
+  const title = "Iron Flame";
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img src="./Images/Book_1.jpg" alt="Iron Flame" />
+      <h2>{title}</h2>
+      {/* In {} only expressions are allowed and not statements */}
+      <h4>{author} </h4>
     </article>
   );
 };
-const Image = () => <img src="./Images/Book_1.jpg" alt="Iron Flame" />;
-const Title = () => (
-  <h2 style={{ color: "#637d58", fontSize: "0.75rem", marginTop: "0.5rem" }}>
-    Iron Flame
-  </h2>
-);
-//defining css in below manner only, we can override this in .css file
-//In above case overriding the stylein .css file is not possible
-const Author = () => {
-  const inlineHeadingSTyle = {
-    color: "#637d58",
-    fontSize: "0.75rem",
-    marginTop: "0.5rem",
-  };
-  return <h4 style={inlineHeadingSTyle}>Rebecca Yarros </h4>;
-};
+
 // }
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<BookList />);
