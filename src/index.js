@@ -3,26 +3,30 @@ import ReactDOM from "react-dom/client";
 
 import "./index.css";
 //Start function name with capital letter
+const books = [
+  {
+    title: "Iron Flame",
+    author: "Rebecca Yarros",
+    image: "./Images/Book_1.jpg",
+  },
+  {
+    title: "The Covenant Of War",
+    author: "Abraham Verghese",
+    image: "./Images/Book_2.jpg",
+  },
+];
 
-const Book1 = {
-  title: "Iron Flame",
-  author: "Rebecca Yarros",
-  image: "./Images/Book_1.jpg",
-};
-const Book2 = {
-  title: "The Covenant Of War",
-  author: "Abraham Verghese",
-  image: "./Images/Book_2.jpg",
-};
 const BookList = () => {
   return (
     <section className="booklist">
-      <Book author={Book1.author} title={Book1.title} image={Book1.image}>
-        <button>Click Me</button>
-      </Book>
-      <Book author={Book2.author} title={Book2.title} image={Book2.image}>
-        <p>Clilck Me</p>
-      </Book>
+      {books.map((book) => {
+        const { title, author, image } = book;
+        return (
+          <div>
+            <Book image={image} title={title} author={author} />
+          </div>
+        );
+      })}
     </section>
   );
 };
