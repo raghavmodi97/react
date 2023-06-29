@@ -21,6 +21,7 @@ const books = [
 const BookList = () => {
   return (
     <section className="booklist">
+      <EventExamples />
       {books.map((book) => {
         return (
           <div>
@@ -28,6 +29,29 @@ const BookList = () => {
           </div>
         );
       })}
+    </section>
+  );
+};
+
+const EventExamples = () => {
+  const handleForInput = () => {
+    console.log("Handle input");
+  };
+  const handleOnClick = () => {
+    alert("You have clicked");
+  };
+  return (
+    <section>
+      <form>
+        <h2>Typical Form</h2>
+        <input
+          onChange={handleForInput}
+          type="text"
+          name="example "
+          style={{ margin: "1rem 0" }}
+        />
+      </form>
+      <button onClick={handleOnClick}>Click Me</button>
     </section>
   );
 };
