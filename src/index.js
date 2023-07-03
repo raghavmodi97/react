@@ -50,16 +50,14 @@ const EventExamples = () => {
       <form>
         <h2>Typical Form</h2>
         <input
-          onChange={handleForInput}
+          onChange={(e) => console.log(e.target.name)}
           type="text"
           name="example "
           style={{ margin: "1rem 0" }}
         />
-        <button type="submit" onClick={handleFormSubmission}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
         <div>
-          <button onClick={handleOnClick} type="button">
+          <button onClick={() => alert("click Me")} type="button">
             Click Me
           </button>
         </div>
