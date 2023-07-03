@@ -19,59 +19,26 @@ const books = [
 ];
 
 const BookList = () => {
+  const someValue = "ShakeAndBake";
+  const displayValue = () => {
+    console.log(someValue);
+  };
   return (
     <section className="booklist">
-      <EventExamples />
       {books.map((book) => {
-        return (
-          <div>
-            <Book {...book} key={book.id} />
-          </div>
-        );
+        return <Book {...book} key={book.id} displayValue={displayValue} />;
       })}
     </section>
   );
 };
 
-const EventExamples = () => {
-  const handleForInput = (e) => {
-    console.log(e.target.name);
-    console.log(e.target.value);
-  };
-  const handleOnClick = () => {
-    alert("You have clicked");
-  };
-  const handleFormSubmission = (e) => {
-    e.preventDefault();
-    console.log("form submitted");
-  };
-  return (
-    <section>
-      <form>
-        <h2>Typical Form</h2>
-        <input
-          onChange={(e) => console.log(e.target.name)}
-          type="text"
-          name="example "
-          style={{ margin: "1rem 0" }}
-        />
-        <button type="submit">Submit</button>
-        <div>
-          <button onClick={() => alert("click Me")} type="button">
-            Click Me
-          </button>
-        </div>
-      </form>
-    </section>
-  );
-};
-
 const Book = (props) => {
-  const { image, title, author, children } = props;
+  const { image, title, author, displayValue, children } = props;
   return (
     <article className="book">
       <img src={image} alt={title} />
       <h2>{title}</h2>
+      <button onClick={displayValue}>Click Me</button>
       <h4>{author}</h4>
       {children}
     </article>
