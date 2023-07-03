@@ -19,26 +19,29 @@ const books = [
 ];
 
 const BookList = () => {
-  const someValue = "ShakeAndBake";
-  const displayValue = () => {
-    console.log(someValue);
+  const getBook = (id) => {
+    const book = books.find((book) => book.id === id);
+    console.log(book.title);
   };
   return (
     <section className="booklist">
       {books.map((book) => {
-        return <Book {...book} key={book.id} displayValue={displayValue} />;
+        return <Book {...book} key={book.id} getBook={getBook} />;
       })}
     </section>
   );
 };
 
 const Book = (props) => {
-  const { image, title, author, displayValue, children } = props;
+  const { image, title, author, id, getBook, children } = props;
+  const getSingleBook = () => {
+    getBook(id);
+  };
   return (
     <article className="book">
       <img src={image} alt={title} />
       <h2>{title}</h2>
-      <button onClick={displayValue}>Click Me</button>
+      <button onClick={getSingleBook}>Click Me</button>
       <h4>{author}</h4>
       {children}
     </article>
